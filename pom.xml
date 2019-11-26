@@ -14,9 +14,107 @@
         <module>system-service</module>
         <module>system-serviceImpl</module>
         <module>system-controller</module>
+        <module>system-utils</module>
     </modules>
+    <properties>
+        <system.core-finalName>system-dao</system.core-finalName>
+        <system.control-finalName>system-controller</system.control-finalName>
+    </properties>
 
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <project.profile>development</project.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <project.profile>production</project.profile>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <project.profile>test</project.profile>
+            </properties>
+        </profile>
+    </profiles>
 
-
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.zhenhao</groupId>
+            <artifactId>system-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhenhao</groupId>
+            <artifactId>system-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhenhao</groupId>
+            <artifactId>system-beans</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhenhao</groupId>
+            <artifactId>system-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <quiet>true</quiet>
+                            <files>
+                                <file>${user.dir}/config/${project.profile}.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
+                    <instrumentation>
+                        <excludes></excludes>
+                    </instrumentation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
