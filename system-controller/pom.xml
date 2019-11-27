@@ -31,6 +31,16 @@
             <artifactId>system-utils</artifactId>
         </dependency>
         <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.2.1.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
             <version>2.1.10.RELEASE</version>
@@ -51,6 +61,11 @@
             <version>3.5.4-beta</version>
         </dependency>
         <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.10</version>
@@ -60,6 +75,15 @@
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>2.1.10.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.18</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.zhenhao</groupId>
+            <artifactId>system-dao</artifactId>
+        </dependency>
     </dependencies>
 </project>
